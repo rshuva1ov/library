@@ -1,0 +1,27 @@
+.tabs .tab {
+  display: flex;
+  width: 100%:
+}
+
+.tab > .painter-info {
+  margin-right: auto;
+}
+
+.tab > * {
+  background-color: #cacaca;
+}
+
+.painter-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: .16s opacity ease-in;
+}
+
+.painter-info_active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}

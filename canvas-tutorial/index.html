@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+  body {
+    background-color: #eee;
+  }
+  
+  .wrapper {
+    display: flex;
+  }
+  
+  #tutorial {
+    margin: 50px auto 0 auto;
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px 0 #99b, -8px -8px 8px 0 white;
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <canvas id="tutorial" width="150" height="150">
+      Тестовое изображение canvas
+    </canvas>
+    <script type="text/javascript">
+      const canvasEl = document.getElementById('tutorial');
+      const ctx = canvasEl.getContext('2d');
+      /*
+      ctx.fillStyle = 'rgb(200,0,0)';
+      ctx.fillRect(10,10,55,50);
+      
+      ctx.fillStyle = 'rgba(0,0,200,.5)'
+      ctx.fillRect(30,30,55,50);
+      
+      ctx.beginPath();
+      ctx.moveTo(75,50);
+      ctx.lineTo(100,75);
+      ctx.lineTo(100,25);
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(75,75,50,0,Math.PI*2,true); // Внешняя окружность
+      ctx.moveTo(110,75);
+      ctx.arc(75,75,35,0,Math.PI,false);  // рот (по часовой стрелке)
+      ctx.moveTo(65,65);
+      ctx.arc(60,65,5,0,Math.PI*2,true);  // Левый глаз
+      ctx.moveTo(95,65);
+      ctx.arc(90,65,5,0,Math.PI*2,true);  // Правый глаз
+      ctx.stroke();
+      */
+      
+      ctx.beginPath();
+      ctx.lineWidth = 4;
+      ctx.moveTo(30,30);
+      ctx.arc(35,35,5,(Math.PI/180) * -90,0,false);
+      ctx.lineTo(40,100);
+      ctx.arc(45,105,5,Math.PI,(Math.PI/180) * 90,true);
+      ctx.lineTo(100,110);
+      ctx.lineTo(110,120);
+      ctx.lineTo(110,140);
+      ctx.stroke();
+    </script>
+  </div>
+</body>
+</html>

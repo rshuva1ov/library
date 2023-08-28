@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+  :root {
+    --main-color: #aa34f3;
+    --dark-color: #77dd32;
+    --light-color: #43af33;
+  }
+  @keyframes rotation {
+    0% {
+      stroke-dasharray: 450 50;
+      transform: rotate(0);
+    }
+    
+    80% {
+      stroke-dasharray: 10 10;
+      transform: rotate(288deg);
+    }
+    
+    100% {
+      stroke-dasharray: 450 50;
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes lighting {
+    0% {
+      box-shadow: 0 -2px 2px 0 var(--main-color),
+      0 -4px 2px 0 var(--dark-color),
+      0 -6px 2px 0 var(--light-color);
+    }
+    25% {
+      box-shadow: 0 -4px 2px 0 var(--main-color),
+      0 -2px 2px 0 var(--dark-color),
+      0 -4px 2px 0 var(--light-color);
+    }
+    50% {
+      box-shadow: 0 -6px 2px 0 var(--main-color),
+      0 -4px 2px 0 var(--dark-color),
+      0 -2px 2px 0 var(--light-color);
+    }
+    75% {
+      box-shadow: 0 -4px 2px 0 var(--main-color),
+      0 -6px 2px 0 var(--dark-color),
+      0 -4px 2px 0 var(--light-color);
+    }
+    100% {
+      box-shadow: 0 -2px 2px 0 var(--main-color),
+      0 -4px 2px 0 var(--dark-color),
+      0 -6px 2px 0 var(--light-color);
+    }
+  }
+  
+  .preloader__circle {
+    transform-origin: center;
+    animation-name: rotation;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  
+  .preloader_lighting {
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(90deg, rgba(98,224,67,1) 0%, rgba(161,73,222,1) 32%, rgba(252,30,103,1) 100%)
+                      radial-gradient(circle at top, transparent, #fff 50%);
+    animation-name: lighting;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+</style>
+</head>
+<body>
+  <div class="preloader preloader_rotation">
+    <svg class="preloader__svg" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <circle class="preloader__circle" cx="100" cy="100" r="80" fill="none" stroke="#fadadd" stroke-width="10" stroke-dasharray="450 50" />
+    </svg>
+  </div>
+  <div class="preloader preloader_lighting"></div>
+</body>
+</html>

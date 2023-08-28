@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+  .scroll {
+    width: 320px;
+    height: 200vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aqua;
+  }
+</style>
+<script src="Display.js"></script>
+</head>
+<body>
+<div class="scroll js-scroll"></div>
+<script type="text/javascript">
+  const disp = new Display();
+  const scrollEl = document.querySelector(`.js-scroll`);
+  
+  window.addEventListener(`scroll`, ev => {
+    /*const scrollElBottom = scrollEl.getBoundingClientRect().bottom;
+    const windowBottomPoint = document.documentElement.clientHeight + 100;
+    disp.show(`${scrollElBottom} & ${windowBottomPoint}`);
+    if(scrollElBottom < windowBottomPoint) disp.show(`done!`);*/
+    disp.show(`${scrollEl.getBoundingClientRect().bottom} & ${document.documentElement.clientHeight}`);
+    if(scrollEl.getBoundingClientRect().bottom <= document.documentElement.clientHeight) disp.show(`done!`);
+  });
+</script>
+</body>
+</html>

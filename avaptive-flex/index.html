@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Адаптивный flex</title>
+<style>
+  :root {
+    counter-reset: li-count;
+  }
+  
+  .adaptive {
+    padding: 8px;
+    background-color: gray;
+  }
+  
+  .adaptive__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-height: 400px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .adaptive__item {
+    position: relative;
+    counter-increment: li-count;
+    flex-shrink: 1;
+    font-size: 80px;
+    background-color: pink;
+  }
+  
+  .adaptive__item::before {
+    content: counter(li-count);
+    display: block;
+    color: rgba(255,255,255,.6);
+    font-size: inherit;
+    text-align: right;
+  }
+  
+  .adaptive__item:first-child {
+    flex-basis: 60%;
+    font-size: 300px;
+    background-color: violet;
+  }
+  
+  .adaptive__item:not(:first-child) {
+    flex-basis: 40%;
+  }
+</style>
+</head>
+<body>
+  <div class="adaptive">
+    <ul class="adaptive__list">
+      <li class="adaptive__item"></li>
+      <li class="adaptive__item"></li>
+      <li class="adaptive__item"></li>
+    </ul>
+  </div>
+</body>
+</html>

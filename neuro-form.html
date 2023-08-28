@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  *,::before,::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    background-color: #bbb;
+  }
+  
+  .container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  
+  .label {
+    margin-bottom: 12px;
+    color: white;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    padding: 14px 18px;
+    border-radius: 10px;
+  }
+  
+  .input-wrapper:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  
+  .input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .shadow {
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -1;
+    display: flex;
+    border-radius: inherit;
+    transition: transform .16s ease-out;
+  }
+  
+  .shadow::before,
+  .shadow::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    border-radius: inherit;
+    transition: opacity .16s ease-out,
+    transform .16s ease-out;
+  }
+    
+  .shadow::before {
+    box-shadow: 10px 10px 20px -10px #0d2750,
+    -10px -10px 20px -10px #fff;
+  }
+  
+  .shadow::after {
+    box-shadow: inset 10px 10px 16px -8px #0d2750,
+    inset -10px -10px 16px -8px #fff;
+    opacity: 0;
+  }
+  
+  .input:hover + .shadow {
+    transform: scale(1.05);
+  }
+  
+  .input:focus-visible {
+    outline: none;
+  }
+  
+  .input:focus-visible + .shadow::before {
+    opacity: 0;
+  }
+  
+  .input:focus-visible + .shadow::after {
+    opacity: 1;
+  }
+  
+  .input:focus-visible + .shadow {
+    transform: scale(1);
+  }
+  
+  .submit {
+    position: relative;
+    display: flex;
+    max-width: fit-content;
+    margin-top: 24px;
+    padding: 14px 18px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    transition: transform .16s ease-out;
+  }
+  
+  .submit-text {
+    display: flex;
+    color: transparent;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(255,255,255,.4);
+    background-color: #333;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    transition: transform .16s ease-out;
+  }
+  
+  .submit-text::before {
+    content: '';
+    position: absolute;
+    inset: 12px 12px 12px 12px;
+    z-index: -1;
+    border-radius: 10px;
+    box-shadow: 10px 10px 16px -8px #0d2750,
+    -10px -10px 16px -8px #fff;
+    opacity: 0;
+    transition: opacity .16s ease-out;
+  }
+  
+  .submit::before,
+  .submit::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -1;
+    display: flex;
+    border-radius: inherit;
+    transition: opacity .16s ease-out;
+  }
+  
+  .submit::before {
+    box-shadow: 10px 10px 16px -8px #0d2750,
+    -10px -10px 16px -8px #fff;
+  }
+  
+  .submit::after {
+    box-shadow: inset 10px 10px 16px -8px #0d2750,
+    inset -10px -10px 16px -8px #fff;
+    opacity: 0;
+  }
+  
+  .submit:hover {
+    transform: scale(1.05);
+  }
+  
+  .submit:active {
+    transform: scale(1);
+  }
+  
+  .submit:focus-visible::after,
+  .submit:active::after,
+  .submit:focus-visible .submit-text::before {
+    opacity: 1;
+  }
+  
+  .submit:active .submit-text {
+    transform: scale(.95);
+  }
+  
+  .submit:active::before {
+    opacity: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+  <form class="form" action="#" method="get" name="form">
+    <h2 class="title">Форма обратной связи</h2>
+    <label class="label" for="name">Имя:</label>
+    <div class="input-wrapper">
+      <input id="name" class="input" type="text" name="name">
+      <span class="shadow"></span>
+    </div>
+    <label class="label" for="email">Адрес электронной почты:</label>
+    <div class="input-wrapper">
+      <input id="email" class="input" type="email" name="email">
+      <span class="shadow"></span>
+    </div>
+    <label class="label" for="message">Сообщение:</label>
+    <div class="input-wrapper">
+      <textarea id="message" class="input" name="message"></textarea>
+      <span class="shadow"></span>
+    </div>
+    <button class="submit" type="submit">
+      <span class="submit-text">Отправить</span>
+    </button>
+  </form>
+  </div>
+  <script type="text/javascript">
+  
+  </script>
+</body>
+</html>

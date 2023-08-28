@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Adaptive</title>
+  <script src="DynamicAdaptive.js"></script>
+  <style>
+    .header-top__nav-list,
+    .header__nav-list {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .header-top__nav-list {
+      background-color: #cacaca;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__top header-top">
+      <nav class="header-top__nav" data-adaptive="500 header-nav">
+        <ul class="header-top__nav-list">
+          <li class="header-top__nav-item">one</li>
+          <li class="header-top__nav-item">two</li>
+          <li class="header-top__nav-item">three</li>
+          <li class="header-top__nav-item">four</li>
+          <li class="header-top__nav-item">five</li>
+        </ul>
+      </nav>
+    </div>
+    <div id="header-nav" class="header__main">
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header-top__nav-item">main</li>
+          <li class="header-top__nav-item">catalog</li>
+          <li class="header-top__nav-item">contacts</li>
+          <li class="header-top__nav-item">other</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script>
+    new DynamicAdaptive().init();
+  </script>
+</body>
+
+</html>

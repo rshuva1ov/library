@@ -1,0 +1,135 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+.filter__header {
+  position: relative;
+  padding: 1px 10px;
+}
+
+.filter__header-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  background-color: transparent;
+  border-color: violet;
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+}
+
+.filter__checks {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter__label {
+  display: flex;
+}
+
+.filter__label .filter__checkbox:checked + .filter__check-text,
+.filter__label .filter__checkbox:checked + .filter__check-text + .filter__check-close {
+  color: violet;
+}
+
+.filter__checks {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__checkbox {
+  display: none;
+}
+
+.filter__check-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.filter__check-text::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: 1px solid currentColor;
+}
+
+.filter__check-text::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  display: none;
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+.filter__checkbox:checked + .filter__check-text::after {
+  display: block;
+}
+
+.filter__check-close {
+  position: relative;
+  display: none;
+  width: 20px;
+  height: 20px;
+  color: inherit;
+}
+
+.filter__check-close::before,
+.filter__check-close::after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  display: block;
+  width: 10px;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.filter__check-close::before {
+  transform: rotate(-45deg);
+}
+
+.filter__check-close::after {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 400px) {
+.filter__header-btn {
+  display: block;
+}
+
+.filter__label > * {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .16s ease-in;
+}
+
+.filter__checks_show .filter__label > *,
+.filter__label .filter__checkbox:checked + .filter__check-text,
+.filter__label .filter__checkbox:checked + .filter__check-text + .filter__check-close,
+.filter__label .filter__checkbox:checked {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
+
+.filter__checkbox:checked + .filter__check-text + .filter__check-close {
+  display: inline-block;
+}
+
+}

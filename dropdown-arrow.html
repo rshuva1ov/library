@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style type="text/css">
+*,::before,::after {
+  box-sizing: border-box;
+}
+
+.field {
+  position: relative;
+  height: 40px;
+  background-color: #333;
+}
+
+.field::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  box-shadow: inset -1px -1px 0 0 #fff;
+  transform-origin: 75% 75%;
+  transform: translate(0, -75%) rotate(45deg);
+  transition: transform .2s ease-out;
+}
+
+.field:hover::after {
+  transform: translate(0, -75%) rotate(-135deg);
+}
+
+.field::before {
+  content: '';
+  position: absolute;
+  top: 16.5px;
+  right: 15.5px;
+  display: block;
+  width: 14.14px;
+  height: 7.07px;
+  border: 1px dashed #fff;
+}
+
+.square {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  transform-origin: 75% 75%;
+  transition: transform 1s;
+}
+
+.square::before {
+  content: '';
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+}
+
+.square:hover {
+  transform: rotate(180deg);
+}
+</style>
+</head>
+<body>
+  <div class="field"></div>
+  <div class="square"></div>
+</body>
+</html>
